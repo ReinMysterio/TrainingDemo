@@ -1,7 +1,6 @@
-﻿using System.Runtime.CompilerServices;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Model;
-using Model.Validators;
+using TrainingDemo.Model;
 
 namespace WebApplication1.Controllers
 {
@@ -9,8 +8,8 @@ namespace WebApplication1.Controllers
     [Route("api/[controller]")]
     public class UsersController : ControllerBase
     {
-        private List<UserResponse> _user = new List<UserResponse>()
-        {
+        private List<UserResponse> _user =
+        [
             new UserResponse()
             {
                 Id = 1,
@@ -25,7 +24,7 @@ namespace WebApplication1.Controllers
                 Name = "Jane Doe",
                 Email = ""
             }
-        };
+        ];
 
 
         [HttpGet]
