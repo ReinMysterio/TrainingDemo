@@ -1,5 +1,6 @@
-﻿using Model.Validators;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
+using TrainingDemo.Model;
+using TrainingDemo.Model.Validators;
 
 namespace Model
 {
