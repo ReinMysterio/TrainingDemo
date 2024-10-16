@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Model;
 using TrainingDemo.Model;
+using TrainingDemo.Services;
 
 namespace WebApplication1.Controllers
 {
@@ -8,56 +9,63 @@ namespace WebApplication1.Controllers
     [Route("api/[controller]")]
     public class UsersController : ControllerBase
     {
-        private List<UserResponse> _user =
-        [
-            new UserResponse()
-            {
-                Id = 1,
-                UserName = "John",
-                Name = "John Doe",
-                Email = ""
-            },
-            new UserResponse()
-            {
-                Id = 2,
-                UserName = "Jane",
-                Name = "Jane Doe",
-                Email = ""
-            }
-        ];
+        private readonly IUserService _userService;
 
-
-        [HttpGet]
-        public string GetUsers()
+        public UsersController(IUserService userService)
         {
-            return "Reading all Users";
+            _userService = userService;
         }
 
-        [HttpGet("{id}")]
+        [HttpGet]
+        public IActionResult GetUsers()
+        {
+            return Ok(_userService.Users);
+        }
+
+        [HttpGet("user")]
         public IActionResult GetUserBy(int id)
         {
-            var user = _user.FirstOrDefault(u => u.Id == id);
+            var user = _userService.Users.FirstOrDefault(u => u.Id == id);
             return Ok(user);
         }
 
 
         [HttpPost]
-        public string CreateUser([FromBody] UserRequestModel userRequestModel)
+        public IActionResult CreateUser([FromBody] UserRequestModel userRequestModel)
         {
-            return "Create new user";
+            var input = new UserResponse()
+            {
+                ConfirmEmail = userRequestModel.Email,
+                Name = userRequestModel.Name,
+                Email = userRequestModel.Email,
+            };
+
+            _userService.Users.Add(input);
+
+            return StatusCode(201);
         }
 
         [HttpPut("{id}")]
-        public string UpdateUserBy(int id)
+        public IActionResult UpdateUserBy(int id, [FromBody] UserRequestModel userRequestModel)
         {
-            return $"Update user with Id :{id}";
+            var user = _userService.Users.FirstOrDefault(u => u.Id == id);
+
+            user.ConfirmEmail = userRequestModel.Email;
+            user.Name = userRequestModel.Name;
+            user.Email = userRequestModel.Email;
+            
+            return Ok();
         }
 
         [HttpDelete("{id}")]
         
-        public string DeleteUserBy(int id)
+        public IActionResult DeleteUserBy(int id)
         {
-            return $"Delete user with Id :{id}";
+            var user = _userService.Users.FirstOrDefault(u => u.Id == id);
+
+            _userService.Users.Remove(user);
+
+            return Ok();
         }
     }
 }

@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34525.116
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrainingDemo", "TrainingDemo.Api\TrainingDemo.csproj", "{F6D0D5B0-8F59-44E1-B604-E9EB5DD61C08}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TrainingDemo", "TrainingDemo.Api\TrainingDemo.csproj", "{F6D0D5B0-8F59-44E1-B604-E9EB5DD61C08}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrainingDemo.Model", "Model\TrainingDemo.Model.csproj", "{55853CFF-7B55-4D93-A636-1B32C51F85A5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TrainingDemo.Model", "Model\TrainingDemo.Model.csproj", "{55853CFF-7B55-4D93-A636-1B32C51F85A5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrainingDemo.Services", "TrainingDemo.Services\TrainingDemo.Services.csproj", "{ABD1675C-8EE3-4D96-A1EF-498455123B08}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{55853CFF-7B55-4D93-A636-1B32C51F85A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{55853CFF-7B55-4D93-A636-1B32C51F85A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{55853CFF-7B55-4D93-A636-1B32C51F85A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ABD1675C-8EE3-4D96-A1EF-498455123B08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABD1675C-8EE3-4D96-A1EF-498455123B08}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABD1675C-8EE3-4D96-A1EF-498455123B08}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABD1675C-8EE3-4D96-A1EF-498455123B08}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
