@@ -38,6 +38,7 @@ namespace WebApplication1.Controllers
                 ConfirmEmail = userRequestModel.Email,
                 Name = userRequestModel.Name,
                 Email = userRequestModel.Email,
+                
             };
 
             _userService.Users.Add(input);

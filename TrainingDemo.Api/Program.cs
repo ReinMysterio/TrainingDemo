@@ -1,4 +1,6 @@
+using Microsoft.EntityFrameworkCore;
 using TrainingDemo.Services;
+using TraininingDemo.DataAccess;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +11,15 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddSingleton<IUserService, UserService>();
+
+// MS SQL
+//builder.Services.AddDbContext<TrainingDemoDbContext>(options =>
+//    options.UseSqlServer(builder.Configuration.GetConnectionString("MsSqlConnection")));
+
+// For MySQL
+builder.Services.AddDbContext<TrainingDemoDbContext>(options =>
+                options.UseMySql(builder.Configuration.GetConnectionString("MySqlConnection"), ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("MySqlConnection"))));
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
